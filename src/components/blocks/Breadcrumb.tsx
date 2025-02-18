@@ -29,7 +29,7 @@ const Breadcrumbs: React.FC<Props> = ({ className = '' }) => {
     );
 
     return (
-        <Suspense>
+        <Suspense fallback={null}>
             <section className={`relative hidden sm:block w-full ${className}`}>
                 <ul className='flex items-center gap-1 w-full'>
                     {breadcrumbs.map(({ id, href, text }, index) => (

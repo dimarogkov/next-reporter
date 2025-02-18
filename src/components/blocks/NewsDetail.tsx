@@ -5,6 +5,7 @@ import { INews } from '@/src/types/interfaces/News';
 
 import { AuthorInfo } from '../elements/Author';
 import { DateInfo } from '../elements';
+import NewsDetailImg from './NewsDetailImg';
 import { Badge, Text, Title } from '../ui';
 
 type Props = {
@@ -18,13 +19,8 @@ const NewsDetail: React.FC<Props> = ({ news, className = '' }) => {
 
     return (
         <section className={`relative w-full ${className}`}>
-            <div className='relative flex items-end w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] xl:h-[600px] p-4 md:p-5 lg:p-8 xl:p-10 rounded-lg overflow-hidden mb-8 lg:mb-10 last:mb-0'>
-                <Image
-                    src={image}
-                    alt={title}
-                    className='absolute top-0 left-0 w-full h-full object-cover object-center brightness-50'
-                    fill
-                />
+            <div className='relative flex items-end w-full h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px] xl:h-[600px] p-4 md:p-5 lg:p-8 xl:p-10 rounded-lg overflow-hidden bg-black mb-8 lg:mb-10 last:mb-0'>
+                {image && <NewsDetailImg src={image} alt={title} />}
 
                 <div className='w-full'>
                     <div className='relative w-full pb-5 border-b border-white/95 mb-5 last:mb-0'>

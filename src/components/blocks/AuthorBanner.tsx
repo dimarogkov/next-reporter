@@ -16,7 +16,9 @@ const AuthorBanner: React.FC<Props> = ({ author, className = '' }) => {
         <section
             className={`relative w-full text-center px-5 md:px-10 py-8 md:py-12 lg:py-16 rounded-md bg-gray mt-10 sm:mt-0 ${className}`}
         >
-            <AuthorAvatar type={EnumAuthorInfo.dark} author={name} className='pointer-events-none mb-5 last:mb-0' />
+            <div className='flex w-fit outline outline-2 outline-white rounded-full overflow-hidden pointer-events-none m-auto mb-5 last:mb-0'>
+                <AuthorAvatar type={EnumAuthorInfo.dark} author={name} />
+            </div>
 
             <Title titleType={EnumTitle.h3} className='mb-3 last:mb-0'>
                 {name}

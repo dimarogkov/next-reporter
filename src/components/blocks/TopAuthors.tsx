@@ -14,7 +14,7 @@ const TopAuthors: React.FC<Props> = async ({ className = '' }) => {
     const authors = await getTopAuthors(12);
 
     return (
-        <Suspense>
+        <Suspense fallback={null}>
             <section className={`relative w-full ${className}`}>
                 <div className='flex items-center justify-between w-full pb-2 sm:pb-3 border-b-2 border-black mb-10 last:mb-0'>
                     <Title titleType={EnumTitle.h2} className='block sm:max-w-[60%]'>
