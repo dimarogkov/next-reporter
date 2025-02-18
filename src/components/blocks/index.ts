@@ -14,6 +14,7 @@ import Header from './Header';
 import Hero from './Hero';
 import NewsCol from './NewsCol';
 import NewsDetail from './NewsDetail';
+import NewsDetailImg from './NewsDetailImg';
 import NewsRow from './NewsRow';
 import PopularNews from './PopularNews';
 import Search from './Search';
@@ -38,6 +39,7 @@ export {
     Hero,
     NewsCol,
     NewsDetail,
+    NewsDetailImg,
     NewsRow,
     PopularNews,
     Search,

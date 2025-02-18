@@ -1,5 +1,9 @@
+'use client';
 import Image from 'next/image';
 import { EnumCard } from '@/src/types/enums';
+import { useImageLoader } from '@/src/hooks';
+
+import { Skeleton } from '../../ui';
 import cn from 'classnames';
 
 type Props = {
@@ -9,6 +13,8 @@ type Props = {
 };
 
 const NewsCardImg: React.FC<Props> = ({ type, src, alt }) => {
+    const { isOptimized, isLoading, hasError, handleLoad, handleError } = useImageLoader();
+
     return (
         <div
             className={cn(
@@ -20,14 +26,24 @@ const NewsCardImg: React.FC<Props> = ({ type, src, alt }) => {
                 }
             )}
         >
-            <Image
-                src={src}
-                alt={alt}
-                className='absolute top-0 left-0 w-full h-full object-cover object-center will-change-transform transition-all duration-500 group-hover:scale-110 group-hover:brightness-75'
-                sizes='100%'
-                priority
-                fill
-            />
+            {isLoading && !hasError && <Skeleton />}
+
+            {src && !hasError && (
+                <Image
+                    src={src}
+                    alt={alt}
+                    sizes='100%'
+                    priority
+                    fill
+                    className={cn(
+                        'absolute top-0 left-0 w-full h-full object-cover object-center will-change-transform transition-all duration-500 group-hover:scale-110 group-hover:brightness-75',
+                        { invisible: isLoading }
+                    )}
+                    onLoad={handleLoad}
+                    onError={handleError}
+                    unoptimized={!isOptimized}
+                />
+            )}
         </div>
     );
 };
