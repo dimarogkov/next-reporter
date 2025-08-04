@@ -19,6 +19,7 @@ const Root: React.FC<Props> = ({ children }) => {
                 className={cn(`relative flex flex-col w-full min-h-screen ${inter.className}`, {
                     'overflow-hidden': isBodyLock,
                 })}
+                suppressHydrationWarning
             >
                 <Header setIsBodyLock={setIsBodyLock} />
                 <main className='relative flex-grow w-full max-w-screen-2xl px-4 sm:px-5 m-auto'>{children}</main>
